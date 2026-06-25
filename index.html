@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دعوة زفاف | وليد & رحمة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Amiri', serif;
+  background: #c8b08a;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ========== OUTER FRAME (curtain border effect) ========== */
+.outer {
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  position: relative;
+  background: #e8d8b8;
+  overflow: hidden;
+}
+
+/* ========== SVG CURTAIN LEFT ========== */
+.curtain-left {
+  position: absolute;
+  top: 0; left: 0;
+  width: 22%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.curtain-right {
+  position: absolute;
+  top: 0; right: 0;
+  width: 22%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  transform: scaleX(-1);
+}
+
+/* Curtain fabric using CSS */
+.curtain-left::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -10%;
+  width: 130%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 70% 50% at 40% 20%, #d4b87a 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 60% 60%, #c8a85e 0%, transparent 50%),
+    linear-gradient(to right, #b8924a, #d4af6a, #c8a85e, #e8d09a, #c0a050);
+  border-radius: 0 60% 60% 0 / 0 30% 30% 0;
+}
+
+.curtain-left::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -5%;
+  width: 120%;
+  height: 55%;
+  background: linear-gradient(to bottom right, #c0a050cc, #d4af6a88, transparent);
+  border-radius: 0 0 80% 0;
+}
+
+/* Jewel trim strip */
+.trim-left {
+  position: absolute;
+  top: 0; left: 18%;
+  width: 18px;
+  height: 100%;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e8c84a 0px, #f0d870 6px, #c8a030 12px,
+    #b89020 18px, #d4af50 24px, #e8c84a 30px
+  );
+  border-radius: 4px;
+  box-shadow: 0 0 8px #b8962e88, inset 0 0 4px #fff5;
+  pointer-events: none;
+}
+
+.trim-right {
+  position: absolute;
+  top: 0; right: 18%;
+  width: 18px;
+  height: 100%;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    to bottom,
+    #e8c84a 0px, #f0d870 6px, #c8a030 12px,
+    #b89020 18px, #d4af50 24px, #e8c84a 30px
+  );
+  border-radius: 4px;
+  box-shadow: 0 0 8px #b8962e88, inset 0 0 4px #fff5;
+  pointer-events: none;
+}
+
+/* ========== TOP DRAPE (swag) ========== */
+.top-drape {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 180px;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.top-drape::before {
+  content: '';
+  position: absolute;
+  top: -20px; left: -5%; right: -5%;
+  height: 200px;
+  background:
+    radial-gradient(ellipse 30% 100% at 15% 0%, #c0a050 0%, transparent 60%),
+    radial-gradient(ellipse 30% 100% at 85% 0%, #c0a050 0%, transparent 60%),
+    radial-gradient(ellipse 20% 80% at 50% 0%, #d4b870 0%, transparent 70%);
+  background-color: #c8a85e;
+}
+
+.top-drape::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    transparent 28px,
+    #e8c84a88 28px, #f0d87088 32px,
+    transparent 32px
+  );
+}
+
+/* ========== CHANDELIER ========== */
+.chandelier {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+  width: 140px;
+}
+
+.chandelier-svg {
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px #b8962e66);
+}
+
+/* ========== CONTENT AREA ========== */
+.content {
+  position: relative;
+  z-index: 10;
+  margin: 0 22% 0 22%;
+  padding: 160px 14px 40px;
+  text-align: center;
+}
+
+/* ========== CENTER PANEL (damask bg) ========== */
+.center-panel {
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 30%, #fdfaf0 30%, #f5ead5 100%);
+  z-index: 1;
+}
+
+/* Damask pattern overlay */
+.center-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 8px 12px at 50% 50%, #d4b87a22 100%, transparent 0%);
+  background-size: 40px 40px;
+  opacity: 0.4;
+}
+
+/* ========== TEXT ELEMENTS ========== */
+.bismillah {
+  font-family: 'Scheherazade New', serif;
+  font-size: 15px;
+  color: #7a5a2a;
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+.verse {
+  font-family: 'Scheherazade New', serif;
+  font-size: 16px;
+  line-height: 2.1;
+  color: #3a2a10;
+  margin-bottom: 14px;
+}
+
+.invite-label {
+  font-size: 15px;
+  color: #5a3e1b;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* ========== COUPLE NAMES ========== */
+.names-wrap {
+  margin: 8px 0 14px;
+  line-height: 1;
+}
+
+.names-big {
+  font-family: 'Scheherazade New', serif;
+  font-size: clamp(42px, 14vw, 68px);
+  font-weight: 700;
+  background: linear-gradient(160deg, #8b6010 0%, #c9a030 25%, #e8c850 45%, #b8880c 65%, #d4af50 85%, #a07020 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  filter: drop-shadow(0 2px 8px #b8962e55);
+  letter-spacing: 2px;
+}
+
+.dua {
+  font-size: 14px;
+  color: #5a3e1b;
+  margin-bottom: 12px;
+  line-height: 2;
+}
+
+/* ========== DATE ========== */
+.date-block {
+  margin-bottom: 16px;
+}
+
+.date-line1 {
+  font-size: 14px;
+  color: #5a3e1b;
+  margin-bottom: 3px;
+}
+
+.date-line2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #3a2a10;
+  direction: ltr;
+  display: block;
+}
+
+.date-line3 {
+  font-size: 13px;
+  color: #7a5a2a;
+  margin-top: 2px;
+}
+
+/* ========== TIMING ROW ========== */
+.timing-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  direction: rtl;
+}
+
+.timing-item {
+  text-align: center;
+  background: transparent;
+  padding: 6px 8px;
+  flex: 1;
+  max-width: 110px;
+}
+
+.timing-icon-text {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.timing-name {
+  font-size: 12px;
+  color: #5a3e1b;
+  font-weight: 700;
+  display: block;
+}
+
+.timing-time {
+  font-size: 12px;
+  color: #7a5a2a;
+  direction: ltr;
+  display: block;
+}
+
+.timing-detail {
+  font-size: 11px;
+  color: #7a5a2a;
+  line-height: 1.5;
+  display: block;
+}
+
+/* ========== DIVIDER ========== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c9a030, transparent);
+}
+.divider span { color: #c9a030; font-size: 14px; }
+
+/* ========== COUNTDOWN ========== */
+.countdown-wrap {
+  margin: 12px 0 16px;
+}
+
+.countdown-label {
+  font-size: 13px;
+  color: #7a5a2a;
+  margin-bottom: 10px;
+}
+
+.countdown-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  direction: ltr;
+}
+
+.cd-item {
+  text-align: center;
+}
+
+.cd-num {
+  background: linear-gradient(160deg, #b8962e, #7a5c0e);
+  color: #fff9e6;
+  font-size: clamp(22px, 7vw, 34px);
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 8px 4px;
+  display: block;
+  min-width: 50px;
+  box-shadow: 0 3px 12px #b8962e44;
+  font-family: 'Amiri', serif;
+  transition: transform 0.15s;
+}
+
+.cd-num.bump { transform: scale(1.1); }
+
+.cd-lbl {
+  font-size: 10px;
+  color: #7a5a2a;
+  margin-top: 4px;
+  display: block;
+}
+
+.cd-sep {
+  color: #b8962e;
+  font-size: 28px;
+  font-weight: 700;
+  padding-top: 6px;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+/* ========== ARABIC CALLIGRAPHY CLOSING ========== */
+.closing-calli {
+  font-family: 'Scheherazade New', serif;
+  font-size: 17px;
+  color: #8b6010;
+  margin: 8px 0 6px;
+  line-height: 2;
+}
+
+.closing-calli2 {
+  font-family: 'Scheherazade New', serif;
+  font-size: 15px;
+  color: #8b6010;
+  margin-bottom: 12px;
+}
+
+/* ========== MAP BTN ========== */
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #b8962e, #8b6010);
+  color: #fff9e6;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 12px 26px;
+  font-size: 15px;
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  box-shadow: 0 4px 18px #b8962e55;
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px #b8962e66;
+}
+
+/* ========== SPARKLES ========== */
+.sparkle-br {
+  position: absolute;
+  bottom: 16px; right: 4%;
+  font-size: 28px;
+  color: #e8d070;
+  opacity: 0.9;
+  z-index: 20;
+  text-shadow: 0 0 10px #fff8;
+  pointer-events: none;
+}
+
+/* ========== CONGRATS ========== */
+#congrats {
+  display: none;
+  font-family: 'Scheherazade New', serif;
+  font-size: 20px;
+  color: #b8962e;
+  padding: 16px;
+  border: 1px solid #c9a030;
+  border-radius: 12px;
+  background: #fffcf0;
+  margin-bottom: 12px;
+}
+
+</style>
+</head>
+<body>
+<div class="outer">
+
+  <!-- CENTER PALE PANEL -->
+  <div class="center-panel"></div>
+
+  <!-- LEFT CURTAIN -->
+  <div class="curtain-left"></div>
+  <!-- RIGHT CURTAIN -->
+  <div class="curtain-right"></div>
+
+  <!-- JEWEL TRIMS -->
+  <div class="trim-left"></div>
+  <div class="trim-right"></div>
+
+  <!-- TOP DRAPE -->
+  <div class="top-drape"></div>
+
+  <!-- CHANDELIER SVG -->
+  <div class="chandelier">
+    <svg class="chandelier-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- candles -->
+      <rect x="24" y="10" width="5" height="22" rx="2" fill="#e8d08a"/>
+      <rect x="57" y="2" width="6" height="26" rx="2" fill="#e8d08a"/>
+      <rect x="91" y="10" width="5" height="22" rx="2" fill="#e8d08a"/>
+      <!-- flames -->
+      <ellipse cx="26.5" cy="8" rx="3" ry="5" fill="#f0c030" opacity="0.9"/>
+      <ellipse cx="60" cy="0" rx="3.5" ry="6" fill="#f0c030" opacity="0.9"/>
+      <ellipse cx="93.5" cy="8" rx="3" ry="5" fill="#f0c030" opacity="0.9"/>
+      <!-- main body -->
+      <ellipse cx="60" cy="50" rx="18" ry="8" fill="#c8a030" opacity="0.9"/>
+      <!-- arms -->
+      <path d="M42 50 Q28 52 26 32" stroke="#b8902a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M78 50 Q92 52 94 32" stroke="#b8902a" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- center drop -->
+      <line x1="60" y1="58" x2="60" y2="80" stroke="#c8a030" stroke-width="2.5"/>
+      <ellipse cx="60" cy="84" rx="7" ry="10" fill="#d4af50" opacity="0.85"/>
+      <ellipse cx="60" cy="95" rx="4" ry="6" fill="#c8a030" opacity="0.7"/>
+      <!-- crystal drops left -->
+      <line x1="26" y1="32" x2="22" y2="48" stroke="#c8a030" stroke-width="1.5"/>
+      <ellipse cx="22" cy="52" rx="3" ry="5" fill="#d4c060" opacity="0.7"/>
+      <line x1="30" y1="34" x2="30" y2="50" stroke="#c8a030" stroke-width="1.5"/>
+      <ellipse cx="30" cy="54" rx="3" ry="5" fill="#d4c060" opacity="0.7"/>
+      <!-- crystal drops right -->
+      <line x1="94" y1="32" x2="98" y2="48" stroke="#c8a030" stroke-width="1.5"/>
+      <ellipse cx="98" cy="52" rx="3" ry="5" fill="#d4c060" opacity="0.7"/>
+      <line x1="90" y1="34" x2="90" y2="50" stroke="#c8a030" stroke-width="1.5"/>
+      <ellipse cx="90" cy="54" rx="3" ry="5" fill="#d4c060" opacity="0.7"/>
+      <!-- scroll decoration -->
+      <path d="M48 60 Q40 70 48 76 Q56 82 48 88" stroke="#c8a030" stroke-width="1.5" fill="none"/>
+      <path d="M72 60 Q80 70 72 76 Q64 82 72 88" stroke="#c8a030" stroke-width="1.5" fill="none"/>
+    </svg>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ</div>
+
+    <div class="verse">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br>
+      لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+    </div>
+
+    <div class="invite-label">تتشرف بدعوتكم | عقد قراني</div>
+
+    <div class="names-wrap">
+      <span class="names-big">وليد &amp; رحمة</span>
+    </div>
+
+    <div class="dua">اللهم اجعله عقداً متيناً وارزقنا التمام الجميل</div>
+
+    <div class="divider"><span>✦</span></div>
+
+    <div class="date-block">
+      <div class="date-line1">وذلك بمشيئة الله مساء يوم الثلاثاء</div>
+      <span class="date-line2">30.06.2026</span>
+      <div class="date-line3">الموافق 01.رجب.1448</div>
+    </div>
+
+    <!-- TIMING ROW like image -->
+    <div class="timing-row">
+      <div class="timing-item">
+        <span class="timing-icon-text">💍</span>
+        <span class="timing-name">الزفة</span>
+        <span class="timing-time">7:45PM</span>
+      </div>
+      <div class="timing-item">
+        <span class="timing-icon-text">🎊</span>
+        <span class="timing-name">الاستقبال</span>
+        <span class="timing-time">7:30PM</span>
+      </div>
+      <div class="timing-item">
+        <span class="timing-icon-text">📍</span>
+        <span class="timing-name">قاعة لامور</span>
+        <span class="timing-detail">نادي الإنتاج<br>الحربي بحلوان</span>
+      </div>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+
+    <!-- CALLIGRAPHY CLOSING (matching the image script style) -->
+    <div class="closing-calli">وحضوركم يُتمّ كل الفرح والسرور</div>
+    <div class="closing-calli2">وجعل الله بينكم مودةً ورحمةً</div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap">
+      <div class="countdown-label">⏳ الوقت المتبقي على الحفل</div>
+      <div id="countdown-grid" class="countdown-boxes">
+        <div class="cd-item">
+          <span class="cd-num" id="cd-d">00</span>
+          <span class="cd-lbl">يوم</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item">
+          <span class="cd-num" id="cd-h">00</span>
+          <span class="cd-lbl">ساعة</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item">
+          <span class="cd-num" id="cd-m">00</span>
+          <span class="cd-lbl">دقيقة</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item">
+          <span class="cd-num" id="cd-s">00</span>
+          <span class="cd-lbl">ثانية</span>
+        </div>
+      </div>
+      <div id="congrats">🎉 بالرفاء والبنين · مبروك للعروسين 🎉</div>
+    </div>
+
+    <!-- MAP BUTTON -->
+    <a href="https://maps.app.goo.gl/nYvg4d4uEySctgK88" target="_blank" class="map-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff9e6"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      موقع قاعة الفرح
+    </a>
+
+  </div>
+
+  <!-- SPARKLE corner -->
+  <div class="sparkle-br">✦</div>
+
+</div>
+
+<script>
+  const wedding = new Date('2026-06-30T19:30:00+03:00');
+
+  function pad(n){ return String(n).padStart(2,'0'); }
+
+  const els = {
+    d: document.getElementById('cd-d'),
+    h: document.getElementById('cd-h'),
+    m: document.getElementById('cd-m'),
+    s: document.getElementById('cd-s'),
+  };
+
+  function tick(){
+    const diff = wedding - new Date();
+    if(diff <= 0){
+      document.getElementById('countdown-grid').style.display='none';
+      document.getElementById('congrats').style.display='block';
+      clearInterval(t);
+      return;
+    }
+    const d = Math.floor(diff/864e5);
+    const h = Math.floor((diff%864e5)/36e5);
+    const m = Math.floor((diff%36e5)/6e4);
+    const s = Math.floor((diff%6e4)/1e3);
+    const prev = els.s.textContent;
+    els.d.textContent=pad(d);
+    els.h.textContent=pad(h);
+    els.m.textContent=pad(m);
+    els.s.textContent=pad(s);
+    if(prev!==pad(s)){
+      els.s.classList.add('bump');
+      setTimeout(()=>els.s.classList.remove('bump'),140);
+    }
+  }
+  tick();
+  const t = setInterval(tick,1000);
+</script>
+</body>
+</html>
