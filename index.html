@@ -66,11 +66,10 @@
       0 0 0 14px var(--gold),
       0 0 0 20px var(--green),
       0 0 0 26px var(--gold-dark),
-      0 30px 60px rgba(0,0,0,.6);
+      0 10px 30px rgba(0,0,0,.2); /* ظل ناعم محايد */
     overflow: hidden;
   }
 
-  /* mosaic shimmer on border */
   .card::before {
     content: '';
     position: absolute;
@@ -83,237 +82,50 @@
     pointer-events: none;
   }
 
-  /* ── bismillah ── */
-  .bismillah {
-    text-align: center;
-    font-size: 1.35rem;
-    color: var(--gold-dark);
-    letter-spacing: .04em;
-    margin-bottom: 18px;
-    opacity: .9;
-  }
-
-  /* ── quran verse ── */
-  .verse {
-    text-align: center;
-    font-size: 1.18rem;
-    line-height: 1.9;
-    color: var(--text);
-    padding: 14px 10px 20px;
-    border-top: 1px solid rgba(184,146,42,.3);
-    border-bottom: 1px solid rgba(184,146,42,.3);
-    margin-bottom: 22px;
-  }
-
-  /* ── invitation label ── */
-  .label {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--muted);
-    margin-bottom: 14px;
-    letter-spacing: .03em;
-  }
-  .label span {
-    color: var(--gold);
-    font-weight: 700;
-  }
-
-  /* ── names ── */
-  .names {
-    text-align: center;
-    font-family: 'Scheherazade New', serif;
-    font-size: 3.4rem;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1.15;
-    text-shadow:
-      0 1px 0 var(--gold-dark),
-      0 2px 4px rgba(0,0,0,.2),
-      0 0 30px rgba(184,146,42,.35);
-    letter-spacing: .02em;
-    margin-bottom: 22px;
-    animation: shimmer 3s ease-in-out infinite alternate;
-  }
-  @keyframes shimmer {
-    from { text-shadow: 0 1px 0 var(--gold-dark), 0 2px 4px rgba(0,0,0,.2), 0 0 20px rgba(184,146,42,.3); }
-    to   { text-shadow: 0 1px 0 var(--gold-dark), 0 2px 4px rgba(0,0,0,.2), 0 0 45px rgba(212,175,90,.55); }
-  }
-
-  /* ── dua ── */
-  .dua {
-    text-align: center;
-    font-size: 1.08rem;
-    color: var(--muted);
-    margin-bottom: 22px;
-    line-height: 1.7;
-  }
-
-  /* ── divider ── */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 6px 0 20px;
-  }
-  .divider::before, .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
+  .bismillah { text-align: center; font-size: 1.35rem; color: var(--gold-dark); letter-spacing: .04em; margin-bottom: 18px; opacity: .9; }
+  .verse { text-align: center; font-size: 1.18rem; line-height: 1.9; color: var(--text); padding: 14px 10px 20px; border-top: 1px solid rgba(184,146,42,.3); border-bottom: 1px solid rgba(184,146,42,.3); margin-bottom: 22px; }
+  .label { text-align: center; font-size: 1.1rem; color: var(--muted); margin-bottom: 14px; letter-spacing: .03em; }
+  .label span { color: var(--gold); font-weight: 700; }
+  .names { text-align: center; font-family: 'Scheherazade New', serif; font-size: 3.4rem; font-weight: 700; color: var(--gold); line-height: 1.15; text-shadow: 0 1px 0 var(--gold-dark); margin-bottom: 22px; }
+  .dua { text-align: center; font-size: 1.08rem; color: var(--muted); margin-bottom: 22px; line-height: 1.7; }
+  .divider { display: flex; align-items: center; gap: 10px; margin: 6px 0 20px; }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
   .divider-icon { color: var(--gold); font-size: 1.1rem; }
-
-  /* ── date block ── */
-  .date-block {
-    text-align: center;
-    font-size: 1.08rem;
-    color: var(--text);
-    line-height: 1.9;
-    margin-bottom: 26px;
-  }
+  .date-block { text-align: center; font-size: 1.08rem; color: var(--text); line-height: 1.9; margin-bottom: 26px; }
   .date-block strong { color: var(--gold-dark); font-size: 1.15rem; }
-
-  /* ── timing row ── */
-  .timing {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    margin-bottom: 28px;
-    border: 1px solid rgba(184,146,42,.35);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .timing-item {
-    flex: 1;
-    text-align: center;
-    padding: 14px 10px;
-    position: relative;
-  }
-  .timing-item + .timing-item::before {
-    content: '';
-    position: absolute;
-    right: 0; top: 14%; height: 72%;
-    width: 1px;
-    background: rgba(184,146,42,.35);
-  }
+  .timing { display: flex; justify-content: center; gap: 0; margin-bottom: 28px; border: 1px solid rgba(184,146,42,.35); border-radius: 10px; overflow: hidden; }
+  .timing-item { flex: 1; text-align: center; padding: 14px 10px; position: relative; }
+  .timing-item + .timing-item::before { content: ''; position: absolute; right: 0; top: 14%; height: 72%; width: 1px; background: rgba(184,146,42,.35); }
   .timing-item .t-icon { font-size: 1.5rem; color: var(--gold); display: block; margin-bottom: 4px; }
   .timing-item .t-label { font-size: .82rem; color: var(--muted); display: block; margin-bottom: 3px; }
   .timing-item .t-time  { font-size: 1.05rem; font-weight: 700; color: var(--gold-dark); }
   .timing-item .t-venue { font-size: .8rem; color: var(--muted); line-height: 1.5; }
-
-  /* ── calligraphy blessings ── */
-  .blessings {
-    text-align: center;
-    font-family: 'Scheherazade New', serif;
-    font-size: 1.3rem;
-    color: var(--gold-dark);
-    line-height: 1.9;
-    margin-bottom: 20px;
-    opacity: .92;
-  }
-
-  /* ── map btn ── */
-  .map-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 13px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Amiri', serif;
-    font-size: 1.05rem;
-    cursor: pointer;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(122,92,16,.45);
-    transition: opacity .2s, transform .15s;
-    margin-bottom: 10px;
-  }
-  .map-btn:hover { opacity: .88; transform: translateY(-1px); }
-
-  /* ── roses decoration ── */
-  .roses {
-    text-align: center;
-    font-size: 2rem;
-    margin-top: 18px;
-    opacity: .65;
-    letter-spacing: 6px;
-  }
-
-  /* ── countdown ── */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 20px 0 6px;
-  }
-  .cd-box {
-    text-align: center;
-    background: var(--parchment);
-    border: 1px solid rgba(184,146,42,.4);
-    border-radius: 8px;
-    padding: 10px 14px;
-    min-width: 62px;
-  }
-  .cd-num {
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: var(--gold-dark);
-    display: block;
-    line-height: 1.1;
-  }
-  .cd-lbl {
-    font-size: .72rem;
-    color: var(--muted);
-    display: block;
-    margin-top: 3px;
-  }
+  .blessings { text-align: center; font-family: 'Scheherazade New', serif; font-size: 1.3rem; color: var(--gold-dark); line-height: 1.9; margin-bottom: 20px; opacity: .92; }
+  .map-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%); color: #fff; border: none; border-radius: 8px; font-family: 'Amiri', serif; font-size: 1.05rem; cursor: pointer; text-decoration: none; box-shadow: 0 4px 14px rgba(122,92,16,.45); transition: opacity .2s; }
+  .map-btn:hover { opacity: .88; }
+  .countdown { display: flex; justify-content: center; gap: 12px; margin: 20px 0 6px; }
+  .cd-box { text-align: center; background: var(--parchment); border: 1px solid rgba(184,146,42,.4); border-radius: 8px; padding: 10px 14px; min-width: 62px; }
+  .cd-num { font-size: 1.7rem; font-weight: 700; color: var(--gold-dark); display: block; line-height: 1.1; }
+  .cd-lbl { font-size: .72rem; color: var(--muted); display: block; margin-top: 3px; }
 </style>
 </head>
 <body>
 <div class="page">
   <div class="card">
-
-    <!-- Bismillah -->
     <p class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-
-    <!-- Verse -->
-    <p class="verse">
-      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br>
-      لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
-    </p>
-
-    <!-- Label -->
+    <p class="verse">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br>لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
     <p class="label">نتشرف بدعوتكم <span>|</span> عقد قراني</p>
-
-    <!-- Names -->
     <div class="names">وليد &amp; رحمة</div>
-
-    <!-- Dua -->
     <p class="dua">اللهم اجعله عقداً متيناً وارزقنا التمام الجميل</p>
-
     <div class="divider"><span class="divider-icon">✦</span></div>
-
-    <!-- Date -->
-    <div class="date-block">
-      وذلك بمشيئة الله مساء يوم الثلاثاء<br>
-      <strong>30.06.2026</strong> الموافق <strong>01 رجب 1448</strong>
-    </div>
-
-    <!-- Countdown -->
+    <div class="date-block">وذلك بمشيئة الله مساء يوم الثلاثاء<br><strong>30.06.2026</strong> الموافق <strong>01 رجب 1448</strong></div>
     <div class="countdown" id="cd">
       <div class="cd-box"><span class="cd-num" id="cd-d">--</span><span class="cd-lbl">يوم</span></div>
       <div class="cd-box"><span class="cd-num" id="cd-h">--</span><span class="cd-lbl">ساعة</span></div>
       <div class="cd-box"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">دقيقة</span></div>
       <div class="cd-box"><span class="cd-num" id="cd-s">--</span><span class="cd-lbl">ثانية</span></div>
     </div>
-
     <div class="divider" style="margin-top:20px"><span class="divider-icon">💍</span></div>
-
-    <!-- Timing row -->
     <div class="timing">
       <div class="timing-item">
         <span class="t-icon">🕌</span>
@@ -331,46 +143,22 @@
         <span class="t-time">7:45 PM</span>
       </div>
     </div>
-
-    <!-- Blessings -->
-    <div class="blessings">
-      وبحضوركم يتم لنا الفرح والسرور<br>
-      وجعل بينكم مودة ورحمة
-    </div>
-
-    <!-- Map button -->
-    <a class="map-btn" href="https://maps.app.goo.gl/nYvg4d4uEySctgK88" target="_blank" rel="noopener">
-      📍 الإنتاج الحربي — عرض الموقع على الخريطة
-    </a>
-
-    <!-- Roses decoration -->
-    <div class="roses">🌹🌿🌹</div>
-
+    <div class="blessings">وبحضوركم يتم لنا الفرح والسرور<br>وجعل بينكم مودة ورحمة</div>
+    <a class="map-btn" href="https://maps.app.goo.gl/nYvg4d4uEySctgK88" target="_blank" rel="noopener">📍 الإنتاج الحربي — عرض الموقع على الخريطة</a>
   </div>
 </div>
-
 <script>
-  // Countdown to 30 June 2026 7:30 PM Egypt time (UTC+3)
   const target = new Date('2026-06-30T19:30:00+03:00');
-
   function tick() {
     const now  = new Date();
     const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd').innerHTML = '<p style="color:var(--gold-dark);font-size:1.2rem;font-family:Amiri,serif">مبروك! 🎉</p>';
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000)  / 60000);
-    const s = Math.floor((diff % 60000)    / 1000);
-    document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
-    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    if (diff <= 0) { document.getElementById('cd').innerHTML = '<p style="color:var(--gold-dark);font-size:1.2rem;font-family:Amiri,serif">مبروك! 🎉</p>'; return; }
+    document.getElementById('cd-d').textContent = String(Math.floor(diff / 86400000)).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(Math.floor((diff % 3600000)  / 60000)).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(Math.floor((diff % 60000)    / 1000)).padStart(2,'0');
   }
-  tick();
-  setInterval(tick, 1000);
+  tick(); setInterval(tick, 1000);
 </script>
 </body>
 </html>
